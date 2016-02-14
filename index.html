@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script src="d3/d3.js"></script>
+</head>
+<body>
+    <h1>SAY HELLO TO MY LITTLE D3.JS FRIEND MADAFAKA</h1>
+    <script type="text/javascript">
+	var dataset = [ 5, 10, 15, 20, 25];
+       // d3.select('body').append('p').text('New paragraph!');
+	d3.select('body').selectAll('p')
+			 .data(dataset)
+			 .enter()
+			 .append('p')
+			 .text(function(d){return 'hello ' + d;})
+			 .style('color', function(d){
+			 	if(d > 15){
+			 		return 'red';
+			 	}
+			 	else {
+					return 'blue';
+			 	}
+			 });
+    </script>
+</body>
+</html>
+
+  
