@@ -4,24 +4,29 @@
     <meta charset="utf-8">
     <title>D3 Test</title>
     <script src="d3/d3.js"></script>
+    <style type='text/css'>
+	div.bar {
+  	  display: inline-block;
+  	  width: 20px;
+  	  height: 75px;   /* Esto se cambiará próximamente */
+  	  background-color: teal;
+	  margin: 0 4px;
+	}
+    </style>
 </head>
 <body>
     <h1>SAY HELLO TO MY LITTLE D3.JS FRIEND MADAFAKA</h1>
     <script type="text/javascript">
 	var dataset = [ 5, 10, 15, 20, 25];
        // d3.select('body').append('p').text('New paragraph!');
-	d3.select('body').selectAll('p')
-			 .data(dataset)
-			 .enter()
-			 .append('p')
-			 .text(function(d){return 'hello ' + d;})
-			 .style('color', function(d){
-			 	if(d > 15){
-			 		return 'red';
-			 	}
-			 	else {
-					return 'blue';
-			 	}
+	d3.select('body').selectAll('div')
+			 .data(dataset) // takes the dataset defined previouslyh
+			 .enter() //iterate over each item of the dataset
+			 .append('div') //add a div element to the DOM
+			 .attr('class', 'bar') //add the class 'bar' to each div element
+			 .style('height', function(d){// a anonymous function to set the style to the height of each div with d like the data 
+			   var barHeight = d * 5; //increment the scale 5 times
+			   return barHeight + 'px'; 
 			 });
     </script>
 </body>
