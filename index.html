@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>D3 Test</title>
     <script src="d3/d3.js"></script>
-    <style type='text/css'>
+    <style type='text/css'> 
 	div.bar {
   	  display: inline-block;
   	  width: 20px;
-  	  height: 75px;   /* Esto se cambiará próximamente */
+  	  height: 75px;   /* this gonna change with the anonymous function of the d3 style method*/
   	  background-color: teal;
 	  margin: 0 4px;
 	}
@@ -17,11 +17,15 @@
 <body>
     <h1>SAY HELLO TO MY LITTLE D3.JS FRIEND MADAFAKA</h1>
     <script type="text/javascript">
-	var dataset = [ 5, 10, 15, 20, 25];
-       // d3.select('body').append('p').text('New paragraph!');
+	var dataset = []; //Initialize empty array 
+	for (var i = 0; i < 25; i++) { //Loop 25 times 
+	    var newNumber = Math.random() * 30; //New random number (0-30) 
+	    dataset.push(newNumber); //Add new number to array 
+	}
+       
 	d3.select('body').selectAll('div')
-			 .data(dataset) // takes the dataset defined previouslyh
-			 .enter() //iterate over each item of the dataset
+			 .data(dataset) // takes the dataset defined previously, iterate over each element of dataset
+			 .enter()
 			 .append('div') //add a div element to the DOM
 			 .attr('class', 'bar') //add the class 'bar' to each div element
 			 .style('height', function(d){// a anonymous function to set the style to the height of each div with d like the data 
