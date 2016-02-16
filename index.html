@@ -26,6 +26,9 @@
         <circle cx="25" cy="25" r="22" class="pumpkin"/>
     </svg>
     <script type="text/javascript">
+	var w = 500;
+	var h = 50;
+	var dataset2 = [ 5, 10, 15, 20, 25 ];
 	var dataset = []; //Initialize empty array 
 	for (var i = 0; i < 25; i++) { //Loop 25 times 
 	    var newNumber = Math.random() * 30; //New random number (0-30) 
@@ -41,6 +44,28 @@
 			   var barHeight = d * 5; //increment the scale 5 times
 			   return barHeight + 'px'; 
 			 });
+	var svg = d3.select('body')
+		    .append('svg')
+		    .attr('width', w)
+		    .attr('height', h);
+	var circles = svg.selectAll('circle')
+			 .data(dataset2)
+			 .enter()
+			 .append('circle');
+
+	circles.attr("cx", function(d, i) {
+			  return (i * 50) + 25;
+			})
+	       .attr("cy", h/2)
+	       .attr("r", function(d) {
+			  return d;
+	    	        })
+	       .attr("fill", "yellow")
+	       .attr("stroke", "orange")
+	       .attr("stroke-width", function(d) {
+    return d/2;
+});	
+
     </script>
 </body>
 </html>
