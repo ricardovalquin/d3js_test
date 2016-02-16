@@ -12,10 +12,19 @@
   	  background-color: teal;
 	  margin: 0 4px;
 	}
+	circle.pumpkin {
+    	  fill: yellow;
+    	  stroke: orange;
+    	  stroke-width: 5;
+    	}
     </style>
 </head>
 <body>
     <h1>SAY HELLO TO MY LITTLE D3.JS FRIEND MADAFAKA</h1>
+    <svg width="500" height="50">
+         <rect x="0" y="0" width="500" height="50"/>
+        <circle cx="25" cy="25" r="22" class="pumpkin"/>
+    </svg>
     <script type="text/javascript">
 	var dataset = []; //Initialize empty array 
 	for (var i = 0; i < 25; i++) { //Loop 25 times 
